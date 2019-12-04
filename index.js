@@ -1,8 +1,3 @@
-## 线性数据结构的遍历
-
-### 数组的遍历
-
-```js
 const arr = [1, 2, 3, 4, 5, 6];
 
 function ArrTraverse(arr) {
@@ -11,36 +6,51 @@ function ArrTraverse(arr) {
     console.log(arr[i]);
   }
 }
-ArrTraverse(arr);
-```
+// ArrTraverse(arr)
 
-### 03-链表的遍历
-
-```js
-//  创建一个链表
 function Node(value, next = null) {
   this.value = value;
   this.next = next;
-}
+};
 
 const d = new Node(4);
 const c = new Node(3, d);
 const b = new Node(2, c);
 const a = new Node(1, b);
 
-// 遍历链表(循环遍历)
+// 循环的方式遍历
 function linkTraverse(root) {
   let temp = root;
   while (true) {
+
     if (temp !== null) {
       console.log(temp.value);
     } else {
       break;
-    }
+    };
 
     temp = temp.next;
   }
 }
 
-linkTraverse(a);
-```
+// 递归方式的遍历
+function linkTraverse1(root) {
+  if (root == null) return;
+  console.log(root.value);
+  linkTraverse1(root.next);
+}
+
+// linkTraverse1(a)
+
+// 数组的递归遍历
+function ArrTraverse1(arr, i) { // 数组 开始遍历位置的索引
+  if (arr[i] == null) return;
+  console.log(arr[i]);
+  ArrTraverse1(arr, i + 1);
+}
+// ArrTraverse1(arr, 0)
+
+// 链表的逆置
+function reversal (root) {
+  
+}
